@@ -25,7 +25,7 @@ public class Ex6 {
 			
 		}
 		while(num !=0);
-		System.out.println("A média números de ");
+		System.out.printf("A média números de números é: %d",media);
 	}
 
 }
