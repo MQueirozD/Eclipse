@@ -24,9 +24,6 @@ se forímpar exiba o número elevado ao quadrado.*/
 			System.out.printf("O número %.2f é par!!",num);
 			double poncia = Math.pow(num,2);//potencia de 2 do numero impar
 			System.out.printf("\nA raiz quadrade de %.2f é de: %.2f", num,poncia);
-		}
-		
-
+		}	
 	}
-
 }
