@@ -1,4 +1,4 @@
-package Exercicios;
+package ExerciciosHerancaPolimorfismo;
 
 public class Animal {
 		private String nome;

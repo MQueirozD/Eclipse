@@ -1,4 +1,4 @@
-package Exercicios;
+package ExerciciosHerancaPolimorfismo;
 
 public class Cavalo extends Animal {
 	private String correr;

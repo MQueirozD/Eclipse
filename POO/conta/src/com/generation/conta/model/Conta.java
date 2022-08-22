@@ -1,14 +1,14 @@
 package com.generation.conta.model;
 
-public class Conta {
+public abstract class Conta {
 	private int numero;
 	private String agencia;
-	private String tipo;
+	private int tipo;
 	private String titular;
 	private float saldo;
 	//private boolean sacar;
 		
-	public Conta(int numero, String agencia, String tipo, String titular, float saldo) {		
+	public Conta(int numero, String agencia, int tipo, String titular, float saldo) {		
 		this.numero = numero;
 		this.agencia = agencia;
 		this.tipo = tipo;
@@ -16,7 +16,7 @@ public class Conta {
 		this.saldo = saldo;
 	}
 	
-	public Conta() {
+	public Conta() {//polimorfismo de SOBRECARGA (qnd esta na mesma classe)
 		//metodo Conta vazio sem nada nele
 	}
 	
@@ -32,10 +32,10 @@ public class Conta {
 	public void setAgencia(String agencia) {
 		this.agencia = agencia;
 	}
-	public String getTipo() {
+	public int getTipo() {
 		return tipo;
 	}
-	public void setTipo(String tipo) {
+	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
 	public String getTitular() {
@@ -51,28 +51,42 @@ public class Conta {
 		this.saldo = saldo;
 	}
 	
-	/*public boolean sacar(float valor) {
-		if (valor <= saldo) {
-			saldo -= valor;
-		}
-		else {
-			System.out.println("Seu saldo é insuficiente");
-			return false;
-		}
-	}*/
+	public void sacar(float valor) {
+		if (this.getSaldo() < valor)
+			System.out.println("\n Saldo Insuficiente!");
+
+		this.setSaldo(this.getSaldo() - valor);
+	}
+	
 	//public void ñ retorna valor so altera
-	public void imprimir() {
+	public void imprimir() {//aqui é um polimorfismo SOBREESCRITA(pq esta em classes diferentes tipo no CONTACORRENTE e CONTAINSS)
+		
+		String tipo = " ";
+		switch(this.tipo) {
+		case 1:
+			tipo = "Conta Corrente";  //AQUI PEGA O NÚMERO E TRANSFORMA EM 
+			break;                    //1 CONTA CORRENT E 2 CONTA INSS
+		case 2:
+			tipo = "Conta INSS";
+			break;
+		}
 		//chama todos os this e fizemos como se fosse um menu
 		System.out.println("\n-----------------------------------------");
 		System.out.println("\n\tDados da conta");
 		System.out.println("\n----------------------------------------");
 		System.out.println("\nNúmeor da conta: " + this.numero);
 		System.out.println("\nNúmero da agencia: " + this.agencia);
-		System.out.println("\nTipo da conta: " + this.tipo);
+		System.out.println("\nTipo da conta: " + tipo);
 		System.out.println("\nNome do titular: "+ this.titular);
 		System.out.println("\nSaldo: " + this.saldo);
+		//System.out.println("\nSacar: "+ this.sacar(saldo));
 		System.out.println("\n----------------------------------------");
 	}
+
+	public void depositar(float valor) {
+		
+	}
+	
 	
 	
 	
